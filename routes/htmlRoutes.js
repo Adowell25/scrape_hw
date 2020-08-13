@@ -13,6 +13,7 @@ module.exports = app => {
           res.render('index', {message: 'No Articles to Display...'})
         } else {
           res.render('index', {articles: dbArticle})
+          console.log(dbArticle, "dbArticle")
         }
       })
       .catch(err => res.json(err))

@@ -15,6 +15,7 @@ module.exports = app => {
 
 
                 axios.get("http://www.echojs.com/").then(function (response) {
+                    console.log(response.data,"RESPONSE")
                     //       // Then, we load that into cheerio and save it to $ for a shorthand selector
                     var $ = cheerio.load(response.data);
                     // Now, we grab every h2 within an article tag, and do the following:
@@ -30,6 +31,13 @@ module.exports = app => {
                             .children("a")
                             .attr("href");
                         console.log(result)
+
+                        result.author = $(this)
+                            .children("a")
+                            .attr("href");
+                            result.excerpt = $(this)
+                            .children("a")
+                            .attr("href");
 
                         // Create a new Article using the `result` object built from scraping
                         db.Article.create(result)

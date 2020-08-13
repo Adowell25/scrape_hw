@@ -7,11 +7,12 @@ $(function () {
         method: 'GET',
         url: '/api/scrape'
       })
-        .then(message => {
-          console.log(message);
+        .then(function (message)  {
+          console.log(message, "MESSAGE");
+          
         });
   
-       location.reload();
+      //  location.reload();
     });
   
     // Submit Note Button ------------------------------------------------------------------------------------------------
