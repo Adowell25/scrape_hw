@@ -1,0 +1,42 @@
+<div class="jumbotron">
+  <h1 class="display-1">MongooseSC</h1>
+  <p class="lead text-white"><i>Lets see if this works</i></p>
+  <button type="button" class="btn btn-info" id="scrape-articles">
+    <i class="fas fa-sync"></i> Scrape Articles
+  </button>
+  <a href="/articles" class="btn btn-success"><i class="far fa-folder-open"></i> Show New Articles</a>
+</div>
+
+<div class="row text-center">{{ message }}</div>
+<div class="row mb-5">
+  <div class="col-12">
+    <div class="accordion" id="articleAccordion">
+      {{#each articles }}
+        <div class="card text-center">
+          <div class="card-header" id="{{ this._id }}">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed no-underline" type="button" data-toggle="collapse"
+                      data-target="#collapse{{ this._id }}"
+                      aria-expanded="false" aria-controls="{{ this._id }}">
+                <strong>{{ this.title }}</strong>
+              </button>
+            </h2>
+            <span class="badge badge-info badge-pill">{{ this.notes.length }} <i class="far fa-sticky-note"></i></span>
+          </div>
+
+          <div id="collapse{{ this._id }}" class="collapse" aria-labelledby="{{ this._id }}"
+               data-parent="#articleAccordion">
+            <div class="card-body">
+              <h6 class="card-title">{{ this.exerpt }}</h6>
+              <p class="card-text text-muted">By: {{ this.author }}</p>
+              <a href="{{ this.link }}" class="card-link" target="_blank">{{ this.link }}</a>
+              <hr>
+              <!--<span class="badge badge-info badge-pill">{{ this.notes.length }}</span>-->
+              <a href="/articles/{{ this._id }}" class="btn btn-sm btn-warning">Notes</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
