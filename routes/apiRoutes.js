@@ -70,39 +70,7 @@ module.exports = app => {
         });
 
 
-        //         axios.get('http://www.echojs.com/').then(response => {
-        //             let newArticleCounter = 0;
-        //             console.log(response.dataw);
-        //             var $ = cheerio.load(response.data);
-        //             $('div.item__text').each(function (i, element) {
-
-        //                 var result = {
-        //                     title: $(this).find('h1').text(),
-        //                     link: $(this).find('h1').children().attr('href'),
-        //                     author: $(this).find('div.author').text(),
-        //                     excerpt: $(this).find('div.excerpt').text(),
-        //                 };
-
-        //                 // If the articles scraped are not in the Array..
-        //                 if (!articleArray.includes(result.title)) {
-        //                     // Increment Counter
-        //                     newArticleCounter++;
-        //                     // Save them to the database
-        //                     db.Article.create(result)
-        //                         .then(dbArticle => {
-        //                             console.log(dbArticle);
-        //                             // res.render('index', {message: `Scrape Completed. ${newArticleCounter} New Articles Available to
-        //                             // View.`}) res.send(200, {message: `Scrape Complete, ${newArticleCounter} New Articles Available`})
-        //                         })
-        //                         .catch(err => console.log(err))
-        //                 } else {
-        //                     console.log('Article Already Scraped.');
-        //                 }
-        //             });
-        //         })
-        //     })
-        //         .catch(err => res.json(err))
-        // });
+        
 
         // POST New Note and Update Article ----------------------------------------------------------------------------------
         app.post('/articles/:id', (req, res) => {
