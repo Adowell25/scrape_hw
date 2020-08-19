@@ -59,7 +59,7 @@ module.exports = app => {
         // Route for getting all Articles from the db
         app.get("/articles", function (req, res) {
             // TODO: Finish the route so it grabs all of the articles
-            db.Article.find({})
+            db.Article.find({}).lean()
                 .then(function (dbArticle) {
                     res.json(dbArticle);
                 })
